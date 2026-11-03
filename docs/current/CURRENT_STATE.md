@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 3 November 2026 (MYT)
+Updated: 4 November 2026 (MYT)
 
 ## Outcome
 
@@ -8,8 +8,12 @@ Updated: 3 November 2026 (MYT)
 
 ## Verified repository state
 
+- Canonical source/controller checkout: `nexus-pbund:/root/workspaces/arqevo`.
 - Controlled fork: `https://github.com/gorillagory/terajuciptabina` (`origin`).
 - Original repository: `https://github.com/terajuciptabina-eng/terajuciptabina` (`upstream`, push-disabled locally).
+- Active integration branch: `staging`, tracking `origin/staging` at `16feebfd59aa65463e1d74d4c2674ba3559f22bd` before the repository-workflow task.
+- Approved promotion path: `dev-task/<short-slug> -> staging -> main`.
+- The Windows checkout is reference and authenticated GitHub-ref relay only; application-source edits occur on the canonical server checkout.
 - `origin/main` and `upstream/main`: `4903807239d8b34cf665bb1a42d8383d11973124`.
 - `upstream/latest-working`: `3b6c108220dcde95ab5b91b83b89aab4198b6a3e`.
 - Protected inherited reference: tag `arqevo-inherited-baseline-20261103` at `4903807239d8b34cf665bb1a42d8383d11973124`.
@@ -17,12 +21,12 @@ Updated: 3 November 2026 (MYT)
 - The current tree contains 80 homeowner accounts, 90 contractor accounts and 31 contractor project-control files; an earlier 81-homeowner count does not match this SHA.
 - Static inspection confirms repository-backed account and project persistence and a temporary GitHub-token API bridge.
 - Static inspection confirms ID-only account access, identifier-selected quotation/project-control mutation and an active detailed-quotation payment bypass.
-- The existing country/market integrity suite passes 36 of 36 tests using synthetic mocks.
+- The existing country/market integrity suite passes 36 of 36 tests using synthetic mocks on the canonical checkout.
 - No application service, database, container, network, port, DNS route or production endpoint was changed or exercised during bootstrap.
 
 ## Infrastructure boundary
 
-- Follow the established Nexus separation: source/controller work is distinct from deployable runtime/database artifacts.
+- `nexus-pbund` owns source, review evidence and release control; `nexus-docker` may hold only explicitly approved runtime/database artifacts.
 - Do not copy a working checkout into a runtime path or treat a runtime copy as canonical source.
 - Do not allocate a port, database, secret path, shared network attachment or public route until a read-only collision/capacity preflight and an explicit deployment GO.
 - Reuse only generic infrastructure patterns. Do not reuse Bayam data, credentials, routes, application identities or branding.
@@ -39,7 +43,7 @@ Updated: 3 November 2026 (MYT)
 
 ## Next safe sequence
 
-1. Add synthetic denial tests for account, quotation, project-control, payment and provider-cost abuse paths.
+1. Start `dev-task/security-denial-tests` from current `staging` and add synthetic denial tests for account, quotation, project-control, payment and provider-cost abuse paths.
 2. Create golden fixtures for both V2 planner calculation engines before refactoring.
 3. Obtain owner decisions on authority, licensing, data retention, incident response and sanitized private-repository strategy.
 4. Design containment and migration with counts, hashes, reconciliation and rollback before removing or relocating any inherited data.

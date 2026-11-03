@@ -1,14 +1,18 @@
 # Handover
 
-Updated: 3 November 2026 (MYT)
+Updated: 4 November 2026 (MYT)
 
 ## Outcome
 
-**HOLD FOR CONTAINMENT; GO FOR READ-ONLY RECOVERY WORK.**
+**GO FOR CONTROLLED `dev-task/*` WORK; HOLD RUNTIME; NO-GO FOR PRODUCTION.**
 
 ## Current references
 
-- Working branch: `arqevo/bootstrap-governance-20261103`.
+- Canonical workspace: `nexus-pbund:/root/workspaces/arqevo`.
+- Integration branch: `staging`.
+- Task-branch pattern: `dev-task/<short-slug>`.
+- Production source branch: `main`.
+- Pre-task `staging` SHA: `16feebfd59aa65463e1d74d4c2674ba3559f22bd`.
 - Inherited SHA: `4903807239d8b34cf665bb1a42d8383d11973124`.
 - Protected tag: `arqevo-inherited-baseline-20261103`.
 - Upstream comparison baseline: `upstream/main` at the inherited SHA.
@@ -16,8 +20,10 @@ Updated: 3 November 2026 (MYT)
 
 ## Completed
 
-- Created an isolated Arqevo source workspace.
+- Established the isolated canonical Arqevo source workspace on `nexus-pbund`.
 - Configured controlled `origin` and push-disabled `upstream`.
+- Created and published `origin/staging` without changing `main`.
+- Recorded the `dev-task/* -> staging -> main` promotion and environment contract.
 - Preserved and pushed the inherited baseline tag without changing `main`.
 - Inspected repository structure without printing inherited data values.
 - Ran the existing offline suite: 36/36 tests passed.
@@ -28,6 +34,6 @@ Updated: 3 November 2026 (MYT)
 
 ## Exact next action
 
-Add synthetic fail-closed denial tests for account, quotation, project-control and payment paths, then establish golden fixtures for BuildPlanner V2 and RenovationPlanner V2. Keep every fixture synthetic and do not configure provider credentials.
+Create `dev-task/security-denial-tests` from current `staging`. Add synthetic fail-closed denial tests for account, quotation, project-control and payment paths, then establish golden fixtures for BuildPlanner V2 and RenovationPlanner V2. Keep every fixture synthetic and do not configure provider credentials.
 
 In parallel, obtain owner decisions on authority, licensing, data retention, incident response and whether to create a sanitized private recovery repository. Do not deploy, sanitize history, rotate credentials, delete data or contact upstream; each requires its own evidence and approval gate.
