@@ -1,6 +1,6 @@
 # Decisions
 
-Updated: 3 November 2026 (MYT)
+Updated: 4 November 2026 (MYT)
 
 | ID | Decision | Status | Reason |
 | --- | --- | --- | --- |
@@ -13,4 +13,8 @@ Updated: 3 November 2026 (MYT)
 | D-007 | Do not allocate or deploy runtime infrastructure until exact port, database, network, secret, backup and rollback boundaries pass preflight and receive explicit GO. | Accepted | Protects existing services from collision or interruption. |
 | D-008 | Decide separately whether recovery requires a sanitized private repository. | Pending owner decision | A public fork cannot become a secure operational-data boundary. |
 | D-009 | Record production continuation as NO-GO while containment findings C-001 through C-009 remain unresolved. | Accepted | The static audit confirms critical identity, authorization, public-data and payment-boundary failures. |
-| D-010 | Keep Nexus infrastructure in discovery-only mode for this phase. | Accepted | Source governance and offline tests can proceed without allocating or changing containers, databases, ports, networks, secrets, DNS or routes. |
+| D-010 | Keep Nexus runtime infrastructure in discovery-only mode for this phase. | Accepted | Source governance and offline tests can proceed without allocating or changing containers, databases, ports, networks, secrets, DNS or routes. |
+| D-011 | Make `nexus-pbund:/root/workspaces/arqevo` the canonical source/controller checkout. | Accepted | Matches the established one-writer server model and prevents divergent desktop source copies. |
+| D-012 | Use `dev-task/<short-slug> -> staging -> main` as the only promotion path. | Accepted | Separates bounded development, test integration and production-source acceptance. |
+| D-013 | Use the Windows checkout only as reference and authenticated GitHub-ref relay until a repository-scoped server credential is separately approved. | Accepted | Enables exact ref publication without copying personal credentials or making the desktop a second source writer. |
+| D-014 | Treat branch promotion and deployment as separate gates. | Accepted | Neither a merge to `staging` nor a merge to `main` authorises a runtime change. |

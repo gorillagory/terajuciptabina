@@ -1,10 +1,20 @@
 # Deployment State
 
-Updated: 3 November 2026 (MYT)
+Updated: 4 November 2026 (MYT)
 
 ## Status
 
-**NO DEPLOYMENT.** The Arqevo recovery branch has not changed or contacted any application runtime.
+**NO DEPLOYMENT.** Arqevo now has a controlled source promotion path, but no application runtime has been allocated, changed or contacted.
+
+## Branch and environment contract
+
+| Purpose | Source branch | Intended runtime boundary | Current state |
+| --- | --- | --- | --- |
+| Bounded development | `dev-task/<short-slug>` | None | Source work only on `nexus-pbund` |
+| Isolated test | `staging` | Proposed `nexus-docker:/srv/docker/apps/arqevo-staging` | Not allocated or deployed |
+| Production | `main` | Proposed `nexus-docker:/srv/docker/apps/arqevo` | Not allocated or deployed |
+
+The proposed runtime paths are planning labels, not reservations. They require a fresh read-only collision and capacity preflight before use. Branch promotion never performs or authorises deployment.
 
 ## Confirmed non-actions
 
@@ -24,4 +34,5 @@ Updated: 3 November 2026 (MYT)
 6. Dedicated least-privilege database identities and root-owned secret files.
 7. Matched backup and isolated restore rehearsal.
 8. Recorded image/config/migration/rollback plan.
-9. Explicit deployment GO from Iskandar.
+9. Resolve the self-writing `.github/workflows/development-log.yml` behaviour before any promotion to `main`.
+10. Explicit deployment GO from Iskandar.
