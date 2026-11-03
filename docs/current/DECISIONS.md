@@ -12,3 +12,5 @@ Updated: 3 November 2026 (MYT)
 | D-006 | Use only synthetic fixtures and offline/read-only checks until containment gates pass. | Accepted | Prevents mutation or further exposure of inherited production records. |
 | D-007 | Do not allocate or deploy runtime infrastructure until exact port, database, network, secret, backup and rollback boundaries pass preflight and receive explicit GO. | Accepted | Protects existing services from collision or interruption. |
 | D-008 | Decide separately whether recovery requires a sanitized private repository. | Pending owner decision | A public fork cannot become a secure operational-data boundary. |
+| D-009 | Record production continuation as NO-GO while containment findings C-001 through C-009 remain unresolved. | Accepted | The static audit confirms critical identity, authorization, public-data and payment-boundary failures. |
+| D-010 | Keep Nexus infrastructure in discovery-only mode for this phase. | Accepted | Source governance and offline tests can proceed without allocating or changing containers, databases, ports, networks, secrets, DNS or routes. |

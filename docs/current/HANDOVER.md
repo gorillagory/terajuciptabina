@@ -22,10 +22,12 @@ Updated: 3 November 2026 (MYT)
 - Inspected repository structure without printing inherited data values.
 - Ran the existing offline suite: 36/36 tests passed.
 - Established current state, decisions, risks, test evidence and deployment gates.
+- Completed a static, metadata-only containment audit without emitting inherited record values.
+- Confirmed ID-selected access/mutation paths, server-held GitHub writes and an active payment bypass.
 - Confirmed that no existing service or runtime was changed.
 
 ## Exact next action
 
-Perform a static, metadata-only containment audit on this branch: enumerate tracked record categories and exposure classes; map every identity, authorization, payment, messaging, AI and GitHub-write path; add synthetic denial tests; and record findings in `docs/current/` without copying record values.
+Add synthetic fail-closed denial tests for account, quotation, project-control and payment paths, then establish golden fixtures for BuildPlanner V2 and RenovationPlanner V2. Keep every fixture synthetic and do not configure provider credentials.
 
-Do not deploy, sanitize history, rotate credentials, delete data or contact upstream during that audit. Each requires its own evidence and approval gate.
+In parallel, obtain owner decisions on authority, licensing, data retention, incident response and whether to create a sanitized private recovery repository. Do not deploy, sanitize history, rotate credentials, delete data or contact upstream; each requires its own evidence and approval gate.
